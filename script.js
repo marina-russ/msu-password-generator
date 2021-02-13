@@ -26,6 +26,7 @@ function generatePassword() {
   if ((userLengthChosen < 8) || (userLengthChosen > 128)) {
     alert("Your password must be between 8-128 characters long!");
     // return prevents the rest of the prompts from being asked
+    //TODO: Can i send user back to the first prompt?
     return;
   }
 
