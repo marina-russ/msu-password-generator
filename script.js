@@ -1,11 +1,11 @@
 // 1. LINK JAVASCRIPT VARIABLE TO HTML BUTTON; ADD EVENT LISTENER TO BUTTON
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", displayPassword);
 
 // 3. DISPLAY PASSWORD TO USER
 function displayPassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
   passwordText.value = password;
 };
 
@@ -23,37 +23,41 @@ function generatePassword() {
   // Store numeric value:
   let passwordLength = prompt("Enter below the desired number of characters for password. \nNote: Password must be at least 8 characters and no more than 128 characters.");
   //TODO: make 8-128 character requirement to proceed
+  // if (""charLength"" <=128 && >=8)
+
   // Store boolean values:
   let selectUpperCase = confirm("Do you want to include uppercase characters?");
   let selectLowerCase = confirm("Do you want to include lowercase characters?");
   let selectNumber = confirm("Do you want to include numbers?");
-  //TODO: should i be concerned that selectSpecial has different highlighted syntax?
   let selectSpecial = confirm("Do you want to include special characters? \nOptions are: ! @ # $ % ^ & * ( ) _ - + = .");
   
   // 3-1. POPULATE MASTER ARRAY WITH SELECTED OPTIONS
-  let masterArray = [""];
+  let masterArray = [];
 
   if (selectUpperCase == true) { 
-    masterArray.push(optionsUppercase);
+    masterArray = masterArray.concat(optionsUpperCase);
   };
   if (selectLowerCase == true) {
-    masterArray.push(optionsLowercase);
+    masterArray = masterArray.concat(optionsLowerCase);
   };
-  //TODO: or do I do masterArray.concat(selectX)?
   if (selectNumber == true) {
-    masterArray.push(optionsNumber);
+    masterArray = masterArray.concat(optionsNumber);
   };
-  if (selectSymbol == true) {
-    masterArray.push(optionsSymbol);
+  if (selectSpecial == true) {
+    masterArray = masterArray.concat(optionsSpecial);
   };
   console.log(masterArray);
 
+  let passwordLoop = [];
   // 3-2. LOOP AS MANY TIMES AS USER CHOSE
-  for (let i = 0; i < passwordLength.length; i++) {
-    masterArray[Math.floor(Math.random() * masterArray.length)];
-    password.concat(masterArray);
-    //TODO: i need to use Math.floor(Math.random()) to pick a letter
-    //TODO: how do i 'save' the result and push it into a new string object?
+  for (let i = 0; i < passwordLength; i++) {
+    let randomCharPicked = masterArray[Math.floor(Math.random() * masterArray.length)];
+    passwordLoop.push(randomCharPicked);
+
+    //TODO: convert passLoop into string with opp of the .split()
   };
+  console.log(passwordLoop);
+  return passwordLoop;
 };
+
 console.log(password);
