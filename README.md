@@ -18,6 +18,6 @@
 
 ### :triangular_ruler: Deployed App:<a name="deployed"></a>
 
-[Link to Deployed Application](https://marina-russ.github.io/password-generator/)
+[Link to Deployed Application](https://marina-russ.github.io/msu-password-generator/)
 
 ![Screenshot of Deployed App](assets/screenshot.png)
